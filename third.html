@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>third lab</title>
+	<script>
+		var font=0,loading;
+		function start()
+		{
+			loading = window.setInterval("inc()",100);
+		}
+		function inc() {
+			font=font + 1;
+			demo.innerHTML="TEXT_GROWING:"+font+"pt";
+			demo.style.fontSize=font+"pt";
+			if(font>50)
+			{
+				window.clearTimeout(loading);
+				loading = window.setInterval("dec()",100);
+			}	
+			demo.style.color="red";
+		}	
+		function dec() {
+			font=font - 1;
+			demo.innerHTML="TEXT_SHRINKING:"+font+"pt";
+			demo.style.fontSize=font+"pt";
+			if(font==5)
+			{
+				window.clearTimeout(loading);
+				loading = window.setInterval("inc()",100);
+			}	
+			demo.style.color="blue";
+		}	
+			
+	</script>	
+	</head>
+	<body  style="background:#32c35f78" onload ="start()">
+		<p style="margin-top:250px" id="demo"></p>
+	</body>
+</html>
